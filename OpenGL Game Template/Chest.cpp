@@ -4,9 +4,10 @@ Chest::Chest(GLWindow& window)
 	: mesh(), window(window) {
 
 
-	objLoader.loadObjModel("res/models/chest.obj");
+	objLoader.loadObjModel("res/models/test.obj");
 
 	mesh.loadToVAO(objLoader.getVertices(), objLoader.getTextures(), objLoader.getNormals(), objLoader.getIndices());
+	mesh.loadTexture(Texture::get("res/images/wallpaper.png"));
 	program = Program::get(BASIC_VERTEX_SHADER, BASIC_FRAGMENT_SHADER);
 }
 
@@ -35,5 +36,5 @@ void Chest::render(const glm::mat4 viewMatrix, const glm::mat4 projection) {
 	program->setMat4("projection", projection);
 
 	// Rendering
-	mesh.renderMesh();
+	mesh.renderVAO();
 }

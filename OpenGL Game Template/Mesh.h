@@ -11,16 +11,13 @@
 
 class Mesh {
 	public:
-		Mesh();
+		Mesh() = default;
 		~Mesh();
 
 
 		void loadToVAO(std::vector<glm::vec3> vertices, std::vector<glm::vec2> textures, std::vector<glm::vec3> normals, std::vector<int> indices);
+		void loadTexture(std::shared_ptr<Texture> texture) { this->texture = texture; }
 		void renderVAO();
-
-		void createMesh(const std::vector<GLfloat>& vertices);
-		void createMesh(const std::vector<GLfloat>& vertices, const std::vector<GLuint>& indices);
-		void renderMesh();
 
 		void clearMesh();
 
@@ -31,12 +28,10 @@ class Mesh {
 		void storeDataInAttrubeList(GLuint attribNumber, int attribSize, void* data, int dataSize);
 		void bindIndicesBuffer(int* indices, int& count);
 
-		std::vector<GLfloat> vertices;
-		int indicesSize;
-		GLuint vaos, vbos;
+		int indicesSize = 0;
+		GLuint VAO = 0, VBO = 0;
 
-		GLuint VAO, VBO, IBO;
-		GLsizei indexCount;
+		std::shared_ptr<Texture> texture;
 };
 
 #endif

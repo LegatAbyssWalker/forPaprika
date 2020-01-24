@@ -35,9 +35,6 @@ class Player {
 		GLfloat lastX = window.getWindow().getSize().x / 2.f;
 		GLfloat lastY = window.getWindow().getSize().y / 2.f;
 		bool firstMouse = true;
-
-		Mesh mesh;
-		std::shared_ptr<Program> program;
 };
 
 #endif

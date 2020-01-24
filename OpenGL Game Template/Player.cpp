@@ -21,11 +21,6 @@ void Player::update(GLfloat deltaTime) {
 }
 
 void Player::render() {
-	program->useProgram();
 
-	// Render items
-
-
-
-	mesh.renderMesh();
+	// ? 
 }
