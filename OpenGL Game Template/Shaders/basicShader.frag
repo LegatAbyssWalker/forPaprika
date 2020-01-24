@@ -1,0 +1,15 @@
+#version 460
+
+in vec2 texCoord;
+
+out vec4 color;	
+
+uniform sampler2D theTexture;
+
+void main() {
+	color = vec4(0, 1, 0, 1);
+
+	// color = texture(theTexture, texCoord);
+
+	// if (color.a < 0.1) { discard; }
+};
