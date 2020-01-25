@@ -11,7 +11,7 @@
 
 class Mesh {
 	public:
-		Mesh() = default;
+		Mesh() { VAO = 0; VBO = 0; indicesSize = 0; }
 		~Mesh();
 
 

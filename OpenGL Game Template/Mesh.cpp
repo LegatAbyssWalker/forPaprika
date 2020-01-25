@@ -7,7 +7,7 @@ Mesh::~Mesh() {
 void Mesh::loadToVAO(std::vector<glm::vec3> vertices, std::vector<glm::vec2> textures, std::vector<glm::vec3> normals, std::vector<int> indices) {
 	// create a VAO
 	GLuint vaoID = createVAO();
-	int indicesSize = indices.size();
+	indicesSize = indices.size();
 	bindIndicesBuffer(indices.data(), indicesSize);
 
 	// Store the data in attribute lists
@@ -27,7 +27,7 @@ void Mesh::renderVAO() {
 
 	// Rendering
 	glDrawElements(GL_TRIANGLES, indicesSize, GL_UNSIGNED_INT, 0);
-
+	
 	// Unbinding
 	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
@@ -51,6 +51,7 @@ GLuint Mesh::createVAO() {
 	glGenVertexArrays(1, &vaoID);
 	VAO = vaoID;
 	glBindVertexArray(vaoID);
+
 	return vaoID;
 }
 
